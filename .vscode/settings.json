@@ -1,0 +1,38 @@
+{
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "editor.minimap.enabled": false,
+  "explorer.openEditors.visible": 0,
+  "editor.rulers": [120],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  "files.exclude": {
+    "**/__generated__": true
+  },
+  "search.exclude": {
+    "**/.git": true,
+    "**/node_modules": true,
+    "**/__generated__": true
+  },
+
+  "vim.useSystemClipboard": true,
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+    "<C-n>": false
+  },
+  "vim.smartcase": false,
+  "vim.visualstar": true,
+  "vim.hlsearch": true,
+  "vim.searchHighlightColor": "#906700",
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "#906700",
+  "vim.leader": ",",
+
+  "vim.easymotion": true,
+  "vim.easymotionMarkerHeight": 12,
+  "vim.easymotionMarkerFontFamily": "Menlo",
+  "vim.easymotionMarkerFontSize": "12px",
+  "vim.easymotionMarkerYOffset": 6
+}

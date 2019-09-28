@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "description": "Array and object immutable helpers inspired by lodash",
   "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maikelrobier/lidash.git"
@@ -22,5 +19,30 @@
   "bugs": {
     "url": "https://github.com/maikelrobier/lidash/issues"
   },
-  "homepage": "https://github.com/maikelrobier/lidash#readme"
+  "homepage": "https://github.com/maikelrobier/lidash#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:prettier",
+      "npm run lint:eslint"
+    ]
+  },
+  "scripts": {
+    "lint:eslint": "eslint --quiet --color",
+    "lint:prettier": "prettier --check",
+    "test": "test"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.0.7",
+    "lint-staged": "^9.4.0",
+    "prettier": "^1.18.2"
+  }
 }
