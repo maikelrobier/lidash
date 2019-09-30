@@ -1,6 +1,6 @@
 {
   "name": "lidash",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "Array and object immutable helpers inspired by lodash",
   "main": "index.js",
   "repository": {
