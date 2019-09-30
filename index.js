@@ -46,7 +46,7 @@ function has(object, property) {
 }
 
 const findChild = (root, path) => {
-  const pathArray = path.split(".");
+  const pathArray = path.split('.');
   let parent = root;
   for (let p = 0; p < pathArray.length - 1; p += 1) {
     if (parent) {
@@ -80,12 +80,10 @@ function pick(object, propOrArray) {
   if (object === null) {
     return {};
   }
-  const included =
-    typeof propOrArray === "string" ? [propOrArray] : propOrArray;
+  const included = typeof propOrArray === 'string' ? [propOrArray] : propOrArray;
 
   return included.reduce(
-    (accumulator, key) =>
-      has(object, key) ? { ...accumulator, [key]: object[key] } : accumulator,
+    (accumulator, key) => (has(object, key) ? { ...accumulator, [key]: object[key] } : accumulator),
     {}
   );
 }
@@ -98,14 +96,10 @@ function omit(object, propOrArray) {
   if (object === null) {
     return {};
   }
-  const excluded =
-    typeof propOrArray === "string" ? [propOrArray] : propOrArray;
+  const excluded = typeof propOrArray === 'string' ? [propOrArray] : propOrArray;
 
   return Object.keys(object).reduce(
-    (accumulator, key) =>
-      excluded.indexOf(key) === -1
-        ? { ...accumulator, [key]: object[key] }
-        : accumulator,
+    (accumulator, key) => (excluded.indexOf(key) === -1 ? { ...accumulator, [key]: object[key] } : accumulator),
     {}
   );
 }
@@ -120,7 +114,7 @@ function mapValues(object, iteratee = identity) {
   return Object.keys(object).reduce(
     (accumulator, key, index) => ({
       ...accumulator,
-      [key]: iteratee(object[key], key, index)
+      [key]: iteratee(object[key], key, index),
     }),
     {}
   );
@@ -130,14 +124,13 @@ function groupBy(array, criteria) {
   /**
    * Similar to _.groupBy
    */
-  const predicate =
-    typeof criteria === "function" ? criteria : item => item[criteria];
+  const predicate = typeof criteria === 'function' ? criteria : item => item[criteria];
 
   return (array || []).reduce((accumulator, item) => {
     const field = predicate(item);
     return {
       ...accumulator,
-      [field]: [...(accumulator[field] || []), item]
+      [field]: [...(accumulator[field] || []), item],
     };
   }, {});
 }
@@ -161,8 +154,7 @@ function sortBy(array, iteratees = identity) {
   const iterateesArray = Array.isArray(iteratees) ? iteratees : [iteratees];
 
   const createSortFn = it => {
-    const getSortValue =
-      typeof it === "function" ? it : object => get(object, it);
+    const getSortValue = typeof it === 'function' ? it : object => get(object, it);
     return (element1, element2) => {
       const sortValue1 = getSortValue(element1);
       const sortValue2 = getSortValue(element2);
@@ -177,10 +169,7 @@ function sortBy(array, iteratees = identity) {
     };
   };
 
-  return iterateesArray.reduce(
-    (partial, it) => partial.sort(createSortFn(it)),
-    array
-  );
+  return iterateesArray.reduce((partial, it) => partial.sort(createSortFn(it)), array);
 }
 
 function without(array, ...values) {
@@ -250,8 +239,7 @@ function sumBy(array, iteratee = identity) {
   /**
    * Similar to _.sumBy
    */
-  const iterateeFn =
-    typeof iteratee === "string" ? value => get(value, iteratee) : iteratee;
+  const iterateeFn = typeof iteratee === 'string' ? value => get(value, iteratee) : iteratee;
   return array.reduce((sum, value) => sum + iterateeFn(value), 0);
 }
 
@@ -259,8 +247,7 @@ function minBy(array, iteratee = identity) {
   /**
    * Similar to _.minBy
    */
-  const iterateeFn =
-    typeof iteratee === "string" ? element => get(element, iteratee) : iteratee;
+  const iterateeFn = typeof iteratee === 'string' ? element => get(element, iteratee) : iteratee;
 
   let minIndex = -1;
   let minValue = Infinity;
@@ -278,8 +265,7 @@ function maxBy(array, iteratee = identity) {
   /**
    * Similar to _.maxBy
    */
-  const iterateeFn =
-    typeof iteratee === "string" ? element => get(element, iteratee) : iteratee;
+  const iterateeFn = typeof iteratee === 'string' ? element => get(element, iteratee) : iteratee;
 
   let maxIndex = -1;
   let maxValue = -Infinity;
@@ -293,7 +279,7 @@ function maxBy(array, iteratee = identity) {
   return array[maxIndex];
 }
 
-export {
+module.exports = {
   difference,
   eq,
   get,
@@ -311,5 +297,5 @@ export {
   sumBy,
   union,
   uniq,
-  without
+  without,
 };
