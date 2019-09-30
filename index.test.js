@@ -6,6 +6,7 @@ const {
   has,
   identity,
   includes,
+  intersection,
   mapValues,
   maxBy,
   minBy,
@@ -193,5 +194,11 @@ describe('index.js', () => {
     expect(maxBy([[5, 10], [1, 0], [3, 20]], point => point[1])).toEqual([3, 20]);
     expect(maxBy([{ x: 5, y: 10 }, { x: 1, y: 0 }, { x: 3, y: 20 }], point => point.y)).toEqual({ x: 3, y: 20 });
     expect(maxBy([{ x: 999999, y: 10 }, { x: 1, y: 9999 }, { x: 3, y: 20 }], 'y')).toEqual({ x: 1, y: 9999 });
+  });
+
+  test('intersection()', () => {
+    expect(intersection([], [])).toEqual([]);
+    expect(intersection([1], [2])).toEqual([]);
+    expect(intersection([4, 1, 3, 6], [3, 2, 1, 7])).toEqual([1, 3]);
   });
 });

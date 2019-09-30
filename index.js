@@ -279,6 +279,20 @@ function maxBy(array, iteratee = identity) {
   return array[maxIndex];
 }
 
+function intersection(array1, array2) {
+  // similar to _.intersection
+  const set2 = new Set(array2);
+  const inBoth = new Set();
+
+  array1.forEach(item => {
+    if (set2.has(item)) {
+      inBoth.add(item);
+    }
+  });
+
+  return [...inBoth];
+}
+
 module.exports = {
   difference,
   eq,
@@ -287,6 +301,7 @@ module.exports = {
   has,
   identity,
   includes,
+  intersection,
   mapValues,
   maxBy,
   minBy,
