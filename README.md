@@ -1,6 +1,7 @@
 # lidash [![CircleCI](https://circleci.com/gh/maikelrobier/lidash.svg?style=svg)](https://circleci.com/gh/maikelrobier/lidash)
 
-Array and object immutable helpers inspired by lodash
+Lidash (**li**ght-weight lo**dash**) is a tiny package containing utilities to manipulate arrays and objects **without mutating them**.
+Exported functions keep the same signature as their lodash equivalents.
 
 ## Installation
 
