@@ -45,4 +45,4 @@ npm run test
 
 ## License
 
-MIT
+[MIT](./LICENSE)
